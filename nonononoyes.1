@@ -1,0 +1,76 @@
+.Dd October 12, 2017
+.Dt NONONONOYES 1
+.Os
+.Sh NAME
+.Nm nonononoyes
+.Nd
+Like 
+.Xr yes 1
+but more sophisticated.
+.Sh SYNOPSIS
+.Nm nonononoyes
+.Nm yesyesyesyesno
+.Sh DESCRIPTION
+.Nm nonononoyes
+looks at its name, which much be composed exclusively of
+.Sm
+.Em yes
+es
+.Sm
+and
+.Sm
+.Em no
+\'s,
+.Sm
+and repeatedly outputs a sequence of
+.Li y
+and
+.Li n
+lines accordingly.
+.Sh EXAMPLES
+.Bd -literal
+$ nonononoyes
+n
+n
+n
+n
+y
+n
+n
+n
+n
+y
+^C
+.Ed
+.Bd -literal
+$ yesyesyesyesno
+y
+y
+y
+y
+n
+y
+y
+y
+y
+n
+^C
+.Ed
+.Bd -literal
+$ cp nonononoyes noyesnonoyes
+$ ./noyesnonoyes
+n
+y
+n
+n
+y
+^C
+.Ed
+.Bd -literal
+$ nononoyes | ./somescript.sh
+.Ed
+.Sh SEE ALSO
+.Xr yes 1
+.Xr true 1
+.Sh AUTHORS
+.An Sijmen J. Mulder Aq Mt ik@sjmulder.nl
