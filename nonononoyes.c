@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include <libgen.h>
 
@@ -10,21 +11,21 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 	p = nm = basename(argv[0]);	
 	while (1) {
-		if (*p == 'y' && *(++p) == 'e' && *(++p) == 's')
+		if (!strncmp(p, "yes", 3)) {
 			puts("y");
-		else if (*p == 'n' && *(++p) == 'o')
+			p += 3;
+		} else if (!strncmp(p, "no", 2)) {
 			puts("n");
-		else if (*p == 'm' && *(++p) == 'a' && *(++p) == 'y' &&
-				*(++p) == 'b' && *(++p) == 'e')
+			p += 2;
+		} else if (!strncmp(p, "maybe", 5)) {
 			puts((rand() & 1) ? "y" : "n");
-		else
-			goto invalid;
+			p += 5;
+		} else {
+			fprintf(stderr, "invalid program name\n");
+			return 1;
+		}
 
-		if (!*(++p))
+		if (!*p)
 			p = nm;
 	}
-
-invalid:
-	fprintf(stderr, "invalid program name\n");
-	return 1;
 }
