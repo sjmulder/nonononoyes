@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <libgen.h>
-#include <string.h>
 
 int main(int argc, char **argv)
 {
@@ -9,24 +8,18 @@ int main(int argc, char **argv)
   p = nm = basename(argv[0]);  
   while (1)
     {
-      if (!*p)
-        p = nm;
-      if (!strncmp(p, "yes", 3))
-        {
-          puts("y");
-          p += 3;
-        }
-      else if (!strncmp(p, "no", 2))
-        {
-          puts("n");
-          p += 2;
-        }
+      if (*p == 'y' && *(++p) == 'e' && *(++p) == 's')
+        puts("y");
+      else if (*p == 'n' && *(++p) == 'o')
+        puts("n");
       else
-        {
-          fprintf(stderr, "invalid program name\n");
-          return 1;
-        }
+        goto invalid;
+
+      if (!*(++p))
+        p = nm;
     }
 
-  return 0;
+invalid:
+  fprintf(stderr, "invalid program name\n");
+  return 1;
 }
