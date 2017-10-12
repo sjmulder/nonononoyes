@@ -1,10 +1,11 @@
 NONONONOYES
 
 Like yes(1), but more sophisticated: it can do nonononoyes, yesyesyesyesno,
-or any pseudo-nonononoyes sequence.
+yesnomaybe, or any pseudo-nonononoyes sequence.
 
-It does so by looking at its name, which much be composed exclusively of yeses
-and no's, and repeatedly outputing a sequence of y and n lines accordingly.
+It does so by looking at its name, which much be composed exclusively of
+yeses, no's, and maybes, and repeatedly outputing a sequence of y and n lines
+accordingly.
 
 Examples:
 
@@ -32,6 +33,12 @@ Examples:
     y
     y
     n
+    ^C
+
+    $ yesnomaybe
+    y
+    n
+    y
     ^C
 
     $ cp nonononoyes noyesnonoyes
