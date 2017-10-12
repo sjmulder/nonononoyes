@@ -12,7 +12,14 @@ but more sophisticated.
 .Nm yesyesyesyesno
 .Sh DESCRIPTION
 .Nm nonononoyes
-looks at its name, which much be composed exclusively of
+is like
+.Sm
+.Xr yes 1
+,
+.Sm
+but it can do nonononoyes, yesyesyesyesno, or any pseudo-nonononoyes sequence.
+.Pp
+It does so by looking at its name, which much be composed exclusively of 
 .Sm
 .Em yes
 es
@@ -22,7 +29,7 @@ and
 .Em no
 \'s,
 .Sm
-and repeatedly outputs a sequence of
+and repeatedly outputing a sequence of
 .Li y
 and
 .Li n
