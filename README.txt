@@ -52,4 +52,4 @@ Examples:
 
     $ nononoyes | ./somescript.sh
 
-Author: Sijmen J. Mulder <ik@sjmulder.nl>
+By Sijmen J. Mulder <ik@sjmulder.nl>
